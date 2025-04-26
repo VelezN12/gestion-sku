@@ -1,16 +1,21 @@
 import psycopg2
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class Conexion():
     def __init__(self):
         try:
             self.con = psycopg2.connect(
-                host="ep-billowing-lab-a4b28hef.us-east-1.aws.neon.tech",
-                database="neondb",
-                user="neondb_owner",
-                password="npg_cbM8d3NZOuCx", 
-                port="5432",
-                sslmode="require"  # importante para conexión segura
+                host=os.getenv("DB_HOST"),
+                database=os.getenv("DB_DATABASE"),
+                user=os.getenv("DB_USER"),
+                password=os.getenv("DB_PASSWORD"),
+                port=os.getenv("DB_PORT"),
+                sslmode=os.getenv("DB_SSLMODE")
             )
+            
             self.crearTablas()
         except Exception as ex:
             print("Error al conectar con la base de datos:", ex)

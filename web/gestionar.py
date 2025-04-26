@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from conexion import Conexion
+from streamlit_extras.stylable_container import stylable_container
 
 def mostrar_gestionar():
     st.title("Gestión de SKUs")
@@ -15,16 +16,59 @@ def mostrar_gestionar():
     # Crear DataFrame
     df_skus = pd.DataFrame(rows, columns=['ID SKU', 'Nombre Etiqueta', 'Guía 1', 'Guía 2', 'Guía 3', 'Placa', 'Pisador'])
 
+    col1, col2 = st.columns([4, 1])  # El buscador ocupa 4 partes, el botón 1 parte
     # Filtro de búsqueda
-    busqueda = st.text_input("🔎 Buscar por ID SKU o Nombre", "")
-    if busqueda:
-        busqueda = busqueda.lower()
-        df_skus = df_skus[
-            df_skus['ID SKU'].astype(str).str.lower().str.contains(busqueda) |
-            df_skus['Nombre Etiqueta'].astype(str).str.lower().str.contains(busqueda)
-        ]
-
+    with col1:
+        busqueda = st.text_input("🔎 Buscar por SKU o Nombre", "")
+        if busqueda:
+            busqueda = busqueda.lower()
+            df_skus = df_skus[
+                df_skus['ID SKU'].astype(str).str.lower().str.contains(busqueda) |
+                df_skus['Nombre Etiqueta'].astype(str).str.lower().str.contains(busqueda)
+            ]
     
+    with col2:
+        with stylable_container(
+                key="btn_volver_inicio",
+                css_styles=[ # Estilos del botón de volver
+                    """
+                    button[data-testid="stBaseButton-secondary"] {
+                        background: linear-gradient(to bottom right, #ff6f61, #ff8e87);
+                        border: 2px solid #58564f;
+                        color: white;
+                        font-weight: bold;
+                        font-size: 16px;
+                        padding: 10px 20px;
+                        border-radius: 15px;
+                        transition: background-color 0.2s ease-in-out;
+                        left: 327px !important;
+                        top: 29px !important;
+                        width: 150px !important;
+                        max-width: 300px;
+                    """,
+                    """
+                    button[data-testid="stBaseButton-secondary"]:hover {
+                        background: linear-gradient(to bottom right, #d75955, #e47e76) !important;
+                        color: white;
+                    }
+                    """,
+                    """
+                    button[data-testid="stBaseButton-secondary"]:active {
+                        background: #fae37c;
+                        color: white;
+                    }
+                    """,
+                    """
+                    button[data-testid="stBaseButton-secondary"]:focus {
+                        background: #fae37c;
+                        color: white !important;
+                    }
+                    """,
+                ]
+            ):
+                if st.button("Volver a Inicio"):
+                    st.session_state.update(page="Inicio")  # O la página que tú quieras volver
+                    st.rerun()
     
 
     # Definir los encabezados de las columnas
@@ -180,23 +224,24 @@ def mostrar_gestionar():
         cols = st.columns([1, 4, 1, 1, 1, 1, 1, 2])  # Puedes ajustar pesos aquí si lo necesitas
 
         for j, value in enumerate(row):
+            valor_mostrar = value if pd.notna(value) and str(value).strip() != '' else '--'
+            
             if j == 0:
-                cols[j].markdown(f"<div class='table-cell id-sku-col'>{value}</div>", unsafe_allow_html=True)
+                cols[j].markdown(f"<div class='table-cell id-sku-col'>{valor_mostrar}</div>", unsafe_allow_html=True)
             elif j == 1:
-                cols[j].markdown(f"<div class='table-cell wide-col'>{value}</div>", unsafe_allow_html=True)
+                cols[j].markdown(f"<div class='table-cell wide-col'>{valor_mostrar}</div>", unsafe_allow_html=True)
             elif j == 2:
-                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col1'>{value}</div>", unsafe_allow_html=True)
+                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col1'>{valor_mostrar}</div>", unsafe_allow_html=True)
             elif j == 3:
-                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col2'>{value}</div>", unsafe_allow_html=True)
+                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col2'>{valor_mostrar}</div>", unsafe_allow_html=True)
             elif j == 4:
-                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col3'>{value}</div>", unsafe_allow_html=True)
+                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col3'>{valor_mostrar}</div>", unsafe_allow_html=True)
             elif j == 5:
-                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col4'>{value}</div>", unsafe_allow_html=True)
+                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col4'>{valor_mostrar}</div>", unsafe_allow_html=True)
             elif j == 6:
-                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col5'>{value}</div>", unsafe_allow_html=True)
-          
+                cols[j].markdown(f"<div class='table-cell id-guia-col id-guia-col5'>{valor_mostrar}</div>", unsafe_allow_html=True)
             else:
-                cols[j].markdown(f"<div class='table-cell'>{value}</div>", unsafe_allow_html=True)
+                cols[j].markdown(f"<div class='table-cell'>{valor_mostrar}</div>", unsafe_allow_html=True)
 
         with cols[7]:
             cols[7].markdown("""
