@@ -1,6 +1,6 @@
 import psycopg2
 from dotenv import load_dotenv
-import os
+import streamlit as st
 
 load_dotenv()
 
@@ -8,12 +8,12 @@ class Conexion():
     def __init__(self):
         try:
             self.con = psycopg2.connect(
-                host=os.getenv("DB_HOST"),
-                database=os.getenv("DB_DATABASE"),
-                user=os.getenv("DB_USER"),
-                password=os.getenv("DB_PASSWORD"),
-                port=os.getenv("DB_PORT"),
-                sslmode=os.getenv("DB_SSLMODE")
+                host=st.secrets["database"]["DB_HOST"],
+                database=st.secrets["database"]["DB_NAME"],
+                user=st.secrets["database"]["DB_USER"],
+                password=st.secrets["database"]["DB_PASSWORD"],
+                port=st.secrets["database"]["DB_PORT"],
+                sslmode="require"  # importante para conexión segura
             )
             
             self.crearTablas()
