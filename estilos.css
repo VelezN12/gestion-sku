@@ -1,0 +1,291 @@
+body {
+    background: linear-gradient(135deg, #67695e 0%, #cac4a8 100%);
+    color: white;
+}
+
+.stApp {
+    background: linear-gradient(135deg, #5a5024 0%, #efdfa6 100%);
+}
+
+.main-box {
+    border: 5px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    color: #ecd468;
+}
+
+.titulo1 {
+    color: #f7d94c;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px; 
+    background: linear-gradient(90deg, #f7ce2e, #e0dfdb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+}
+
+.titulo2 {
+    color:#000; 
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.cajon1 {
+
+    background: linear-gradient(45deg, #dad3b4 0%, #faf3d3 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.titulo-subheader {
+    color: #ecd468 !important;
+    text-align: center !important;
+    font: 30pt "Impact" !important;
+}
+.titulo-subheader2 {
+    color: #ecd468 !important;
+    text-align: center !important;
+    font: 30pt "Impact" !important;
+}
+
+.imagen-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.imagen-icono {
+    width: 120px;
+    height: auto;
+    border-radius: 10px; /* opcional si quieres esquinas redondeadas */
+}
+
+
+button[key="btn_aceptar_modal"] {
+    background: linear-gradient(to bottom right, #f3e8c2, #d9c293);
+    border: 2px solid #9d8220;
+    color: #2c2c2c !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 15px !important;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover */
+button[kind="secondary"]:hover {
+    background-color: #4100f3;
+}
+
+/* Al hacer clic */
+button[kind="secondary"]:active {
+    background-color: #5be0f5 !important;
+}
+
+button[kind="secondaryFormSubmit"]:active {
+    background-color: #5be0f5 !important;
+    border: 2px solid black!important;
+    color: white!important;
+}
+
+button[kind="secondaryFormSubmit"]:hover {
+    background-color: #5be0f5 !important;
+    border: 2px solid black;
+    color: white;
+}
+
+button[kind="secondaryFormSubmit"]:focus {
+    background-color: #5be0f5 !important;
+    border: 2px solid black !important;
+    color: white!important;
+}
+
+.botonera {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+
+.botones {
+    background-color: #f8f1da;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+#btn_aceptar_modal {
+    background-color: #007f33 !important;  /* Verde oscuro para el botón Aceptar */
+    color: white;
+    font-weight: bold;
+    width: 50%;  /* Puedes ajustar el tamaño */
+    margin: auto;  /* Centra el botón */
+    padding: 12px 20px;  /* Más padding para hacerlo más visible */
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button-container button {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #45a049;
+}
+
+.content-box {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #0000ff;
+    border-radius: 10px;
+}
+
+.espacioblanco {
+    margin-bottom: 350px;
+    background-color: #0000ff;
+}
+
+/* Estilo para el botón con el id 'btn_aceptar_modal' */
+button#btn_aceptar_modal {
+    background-color: #007f33 !important;  /* Verde oscuro */
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 12px;
+    width: 50%;  /* Ajusta el tamaño */
+    margin: auto;  /* Centra el botón */
+    cursor: pointer;
+}
+
+/* Hover effect */
+button#btn_aceptar_modal:hover {
+    background-color: #5be0f5;
+}
+
+/* Active effect */
+button#btn_aceptar_modal:active {
+    background-color: #4CAF50;
+}
+
+/* Fondo del formulario */
+.stForm {
+    background: linear-gradient(45deg, #dad3b4 0%, #faf3d3 100%);
+    padding: 30px;
+    border-radius: 15px;
+    
+    box-shadow: 20px 10px 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Labels del formulario */
+label p {
+    color: black !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+}
+
+/* Inputs de texto */
+input[type="text"] {
+    background-color: #ffffff;
+    border: 1px solid #ccaa00;
+    border-radius: 8px;
+    padding: 8px;
+    color: #333333;
+}
+
+/* Botones del formulario */
+button[kind="formSubmit"] {
+    background-color: #3399ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+button[kind="formSubmit"]:hover {
+    background-color: #007acc;
+}
+
+h1, h2 {
+    color: #004080;
+    font-size: 50px !important;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #fff01a, #f1e9c6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px !important;
+    border-radius: 10px;
+
+}
+
+h2 {
+    font-size: 30px !important; /* Ajusté el tamaño para que sea más apropiado para el h2 */
+}
+
+input:disabled {
+    border: 2px solid #000000;
+    color: black !important;
+    font-weight: bold !important;
+    cursor: not-allowed;
+    font-size: 30x !important;
+}
+
+/* Estilo para la tabla */
+.stDataFrame {
+    width: 100% !important;  /* Asegura que la tabla ocupe todo el ancho disponible */
+    max-width: 100%; /* Evita que la tabla se limite a un tamaño reducido */
+    overflow-x: auto; /* Agrega desplazamiento horizontal si la tabla es muy ancha */
+}
+
+/* Estilo para las celdas de la tabla */
+.stDataFrame .dataframe {
+    width: 100% !important;
+    display: table;
+}
+
+.stDataFrame .stButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Otros estilos que puedes ajustar según tus necesidades */
+.stButton {
+    width: auto !important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+div[data-testid="stMainBlockContainer"]{
+
+    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+
+
+
+
+
