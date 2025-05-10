@@ -209,7 +209,8 @@ input[type="text"] {
     border: 1px solid #ccaa00;
     border-radius: 8px;
     padding: 8px;
-    color: #333333;
+    color: #000000;
+    font-weight: bold;
 }
 
 /* Botones del formulario */
@@ -282,6 +283,17 @@ div[data-testid="stMainBlockContainer"]{
     margin-left: 0;
     margin-right: 0;
 }
+
+#text_input_2 {
+
+    color: #ae0000 !important; 
+
+}
+
+.st-c5 {
+    -webkit-text-fill-color: rgb(0 0 0 / 100%);
+}
+
 
 
 

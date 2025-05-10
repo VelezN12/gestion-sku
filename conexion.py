@@ -39,3 +39,4 @@ class Conexion():
             cur.close()
         except Exception as ex:
             print("Error al crear tablas:", ex)
+            

@@ -104,6 +104,8 @@ def mostrar_consultar():
                 # Mostrar formulario con detalles solo si se ha solicitado
                 
                 if st.session_state.mostrar_detalles_sku:
+                   
+
                     with st.form(key="detalles_sku_form"):
                         campos = ["ID SKU", "Nombre Etiqueta", "Guía 1", "Guía 2", "Guía 3", "Placa", "Pisador"]
                         valores = resultado
@@ -160,7 +162,7 @@ def mostrar_consultar():
             f"""
             <div style="
                 position: fixed;
-                top: 40%;
+                top: 38%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 background-color: #ffe6e6;
@@ -172,7 +174,7 @@ def mostrar_consultar():
                 text-align: center;
             ">
                 <h3 style="color: #cc0000;">❌ SKU no encontrado</h3>
-                <p style="color: #000000;">No se encontró ningún registro con el ID: <strong>{sku}</strong></p>
+                <p style="color: #000000;">No se encontró ningún registro con el SKU: <strong>{sku}</strong></p>
             </div>
             """,
             unsafe_allow_html=True
